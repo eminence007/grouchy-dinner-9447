@@ -4,9 +4,6 @@ const connection = mongoose.connect(
 );
 
 
-
-
-
 module.exports = { connection };
 
 

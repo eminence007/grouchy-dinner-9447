@@ -10,8 +10,6 @@ app.use("/user",userRoute);
 app.use('/exercise', exerciseRoute);
 
 
-
-
 app.listen(4500, async(req,res)=>{
     try{
         await connection
@@ -22,6 +20,4 @@ app.listen(4500, async(req,res)=>{
     }
 
 })
-
-
 
