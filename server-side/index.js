@@ -1,4 +1,5 @@
 const express = require("express");
+
 const {connection}=require("./config/db")
 const app=express();
 const { exerciseRoute } = require('./routes/exercise.route');
@@ -19,3 +20,4 @@ app.listen(4500, async(req,res)=>{
         console.log(`Mongo is not connected so check you console`);
     }
 })
+
