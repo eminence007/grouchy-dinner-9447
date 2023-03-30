@@ -34,7 +34,7 @@ userRoute.post("/signIn", async(req,res)=>{
         if(user){
             bcrypt.compare(password, user.password, (err, result)=> {
                 if(result){
-                 res.status(200).send({"msg":"Login Successful","token":jwt.sign({ userId: user._id }, "secretKey")})
+                 res.status(200).send({"msg":"Login Successful","token":jwt.sign({ userId: user._id }, "secretkey")})
                 }else{
                  res.status(400).send({"msg":"Wrong Crendential"})
                }
