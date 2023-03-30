@@ -1,0 +1,56 @@
+{
+  "foodData": [
+    {
+      "foodName": "apple",
+      "Macronutrient": {
+        "protein": [
+          { "name": "Cystine", "weight": 0.1, "availableIn100g": 18 },
+          { "name": "Histidin", "weight": 0, "availableIn100g": 0 },
+          { "name": "IcoLeucine", "weight": 0.1, "availableIn100g": 10.2 },
+          { "name": "Leucine", "weight": 0.2, "availableIn100g": 13 },
+          { "name": "Lysine", "weight": 0.2, "availableIn100g": 30 }
+        ],
+        "Fat": [
+          { "name": "Monounsaturated", "weight": 2, "availableIn100g": 2 },
+          { "name": "Polyunsaturated", "weight": 2.3, "availan100g": 4 },
+          { "name": "Omega-3", "weight": 4, "availableIn100g": 9 },
+          { "name": "Omega-6", "weight": 0, "availableIn100g": 0 },
+          { "name": "Saturared", "weight": 2.1, "availableIn100g": 4 }
+        ],
+        "Carbohydrates": [
+            { "name": "Fiber", "weight": 2, "availableIn100g": 4 },
+          { "name": "Starch", "weight": 5, "availan100g": 3 },
+          { "name": "Suger", "weight": 3.5, "availableIn100g": 1 },
+          { "name": "NetCarbs", "weight": 3.1, "availableIn100g": 2}
+        ]
+      },
+
+      "HighlightedNutrients": [
+        { "name": "Fiber", "weight": 6, "availableIn100g": 2 },
+        { "name": "Iron", "weight": 7, "availableIn100g": 3.4 },
+        { "name": "Calcium", "weight": 2, "availableIn100g": 2.6 },
+        { "name": "Vit.A", "weight": 8.9, "availableIn100g": 10.3 },
+        { "name": "Vit.C", "weight": 6.5, "availableIn100g": 1.2 },
+        { "name": "Vit.B12", "weight": 0.2, "availableIn100g": 0.8 },
+        { "name": "Folate", "weight": 2.1, "availableIn100g": 6.4 },
+        { "name": "Potashium", "weight": 5, "availableIn100g": 13 }
+      ],
+
+      "Vitamins": [
+        { "name": "vitamin B", "weight": 2.1, "availableIn100g": 5 },
+        { "name": "Vitamin B", "weight": 4.6, "availableIn100g": 4 },
+        { "name": "Vitamin C", "weight": 5.2, "availableIn100g": 11 },
+        { "name": "Vitamin B12", "weight": 3.1, "availableIn100g": 6 },
+        { "name": "Vitamin K", "weight": 4.6, "availableIn100g": 12 }
+      ],
+      "Minerals": [
+        { "name": "Calcium", "weight": 275, "availableIn100g": 28 },
+        { "name": "Copper", "weight": 2.5, "availableIn100g": 4 },
+        { "name": "Iron", "weight": 6, "availableIn100g": 1 },
+        { "name": "Magnesium", "weight": 0, "availableIn100g": 0 },
+        { "name": "Phosphorus", "weight": 215, "availableIn100g": 29 },
+        { "name": "Potashium", "weight": 9, "availableIn100g": 16 }
+      ]
+    }
+  ]
+}
