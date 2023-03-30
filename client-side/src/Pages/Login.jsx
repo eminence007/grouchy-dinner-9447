@@ -7,7 +7,6 @@ const Login = () => {
   function signInHandler(){
     axios.post("http://loaclhost:8080/user/login",{email,password})
   }
-
   return <div className="m-auto w-[50%]">
 
   <div className="container mx-auto px-20 p-3 rounded-lg bg-white shadow-md "  >
@@ -35,15 +34,6 @@ const Login = () => {
       </div>
   </div>
 </div>
-
-  return <div>Login
-    <label>Email</label>
-    <input onChange={(e)=>{setEmail(e.target.value)}} placeholder="enter email"/>
-    <label>password</label>
-    <input onChange={(e)=>{setpassword(e.target.value)}}  placeholder="enter password"/>
-    <button onClick={signInHandler} >Sign In</button>
-  </div>;
-
 };
 
 export default Login;
