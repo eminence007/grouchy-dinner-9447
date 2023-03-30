@@ -10,12 +10,8 @@ import Login from "./Pages/Login";
 function App() {
   return (
     <div className="App">
-
       <HomePage />
-    
-
       <SignUp/>
-
     </div>
   );
 }
