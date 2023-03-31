@@ -1,11 +1,17 @@
+import { CircularProgress } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../Redux/auth/action";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
+  
+  const dispatch=useDispatch()
   function signInHandler() {
-    axios.post("http://loaclhost:8080/user/login", { email, password });
+    dispatch(login({email,password}))
+    // axios.post("http://loaclhost:8080/user/login", { email, password });
   }
   return (
     <div className="m-auto w-[50%]">
@@ -42,6 +48,7 @@ const Login = () => {
               className="test-center border py-2 bg-green-800 rounded-xl w-52"
             >
               LOGIN
+              <CircularProgress isIndeterminate color='green.300' />
             </button>
             <p className="mt-4 text-green-800 underline">
               <a href="#">Forget your password?</a>
