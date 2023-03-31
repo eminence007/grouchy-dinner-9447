@@ -4,6 +4,7 @@ const {connection}=require("./config/db")
 const {userRoute}=require("./routes/user.routes")
 const {foodRoute}=require("./routes/food.routes")
 const {auth}=require("./middleware/auth.middleware")
+const {diary} = require("./routes/diary.route")
 const app=express();
 app.use(express.json());
 
@@ -13,7 +14,7 @@ app.use("/user",userRoute);
 app.use('/exercise', exerciseRoute); 
 // app.use(auth)
 app.use("/food",foodRoute)
-
+app.use("/diary",diary)
 
 app.listen(4500, async(req,res)=>{
     try{
