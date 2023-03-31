@@ -5,13 +5,11 @@ import {
   Stack,
   Text,
   Button,
-  Icon,
-  IconProps,
 } from "@chakra-ui/react";
 
 export default function CallToAction() {
   return (
-    <Container maxW={"5xl"}>
+    <Container mb={10} bg={"#262a3b"} maxW={"full"}>
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -19,32 +17,33 @@ export default function CallToAction() {
         py={{ base: 20, md: 28 }}
       >
         <Heading
+          color={"white"}
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          Meeting scheduling{" "}
-          <Text as={"span"} color={"orange.400"}>
-            made easy
+          One place{" "}
+          <Text as={"span"} color={"red.400"}>
+            Food Diary
           </Text>
         </Heading>
-        <Text color={"gray.500"} maxW={"3xl"}>
-          Never miss a meeting. Never be late for one too. Keep track of your
-          meetings and receive smart reminders in appropriate times. Read your
-          smart “Daily Agenda” every morning.
+        <Text color={"white"} maxW={"3xl"}>
+          Find out if you're getting the vitamins and minerals you need with our
+          food diary app
         </Text>
         <Stack spacing={6} direction={"row"}>
           <Button
-            rounded={"full"}
-            px={6}
-            colorScheme={"orange"}
-            bg={"orange.400"}
-            _hover={{ bg: "orange.500" }}
+            borderRadius={10}
+            size={"lg"}
+            width={"270px"}
+            height={"60px"}
+            fontWeight={"normal"}
+            fontSize={"xl"}
+            colorScheme={"red"}
+            bg={"red.400"}
+            _hover={{ bg: "red.500" }}
           >
-            Get started
-          </Button>
-          <Button rounded={"full"} px={6}>
-            Learn more
+            Sign Up - It's Free!
           </Button>
         </Stack>
       </Stack>
