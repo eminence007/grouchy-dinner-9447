@@ -5,21 +5,22 @@ import FeaturesList1 from "../Components/Home/FeaturesList1";
 import FeaturesList2 from "../Components/Home/FeaturesList2";
 import Footer from "../Components/Home/Footer";
 import ProCTA from "../Components/Home/ProCTA";
-import Testimonials from "../Components/Home/Testimonials";
 import TopHero from "../Components/Home/TopHero";
 import NavBar from "../Components/NavBar/NavBar";
+import MediaMentions from "../Components/Home/MediaMentions";
+import ReviewSection from "../Components/Home/ReviewSection";
 
 const HomePage = () => {
   return (
     <>
       <NavBar />
       <TopHero />
-      {/* mores has to be added here */}
+      <MediaMentions/>
       <FeaturesList1 />
       <FeaturesList2 />
       <CallToAction />
       <AppsDevices />
-      <Testimonials />
+      <ReviewSection />
       <ProCTA />
       <Footer />
     </>

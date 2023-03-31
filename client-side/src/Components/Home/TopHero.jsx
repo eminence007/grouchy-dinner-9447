@@ -17,11 +17,11 @@ import {
 
 export default function TopHero() {
   return (
-    <Container maxW={"7xl"}>
+    <Container mt={10} borderBottom="1px" borderColor="gray.200" maxW={"7xl"}>
       <Stack
         align={"center"}
         spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        pb={{ base: 15, md: 20 }}
         direction={{ base: "column", md: "row" }}
       >
         <Stack justify={"space-between"} flex={1} spacing={{ base: 5, md: 10 }}>
@@ -60,10 +60,12 @@ export default function TopHero() {
             direction={{ base: "column", sm: "row" }}
           >
             <Button
-              rounded={"full"}
+              borderRadius={10}
               size={"lg"}
+              width={"270px"}
+              height={"60px"}
               fontWeight={"normal"}
-              px={6}
+              fontSize={"xl"}
               colorScheme={"red"}
               bg={"red.400"}
               _hover={{ bg: "red.500" }}

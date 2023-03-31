@@ -17,7 +17,7 @@ const Logo = (props) => {
     <Image
       width={"150px"}
       alt={"feature image"}
-      src={"fit-fuel-log-black.png"}
+      src={"new-logo-footer.png"}
     />
   );
 };

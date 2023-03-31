@@ -7,15 +7,19 @@ import {
   Icon,
   Stack,
   Text,
+  Grid,
+  GridItem,
   useColorModeValue,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { ReactElement } from "react";
 import {
-  FcAbout,
-  FcAssistant,
-  FcCollaboration,
-  FcDonate,
   FcManager,
+  FcAlarmClock,
+  FcAddDatabase,
+  FcIpad,
+  FcComboChart,
+  FcEngineering,
 } from "react-icons/fc";
 
 const Card = ({ heading, description, icon, href }) => {
@@ -28,7 +32,7 @@ const Card = ({ heading, description, icon, href }) => {
       overflow="hidden"
       p={5}
     >
-      <Stack align={"start"} spacing={2}>
+      <Stack align={"center"} spacing={2}>
         <Flex
           w={16}
           h={16}
@@ -53,7 +57,7 @@ const Card = ({ heading, description, icon, href }) => {
 
 export default function FeaturesList1() {
   return (
-    <Box p={4}>
+    <Box mt={"80px"} p={4}>
       <Stack spacing={4} as={Container} maxW={"xl"} textAlign={"center"}>
         <Heading
           fontSize={{ lg: "5xl", base: "2xl", sm: "4xl" }}
@@ -67,56 +71,84 @@ export default function FeaturesList1() {
         </Text>
       </Stack>
 
-      <Container maxW={"5xl"} mt={12}>
-        <Flex flexWrap="wrap" gridGap={6} justify="center">
+      <SimpleGrid
+        margin={"auto"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        maxW={"7xl"}
+        mt={12}
+        columns={{ base: 1, md: 2, lg: 3 }}
+        gap={6}
+      >
+        <GridItem
+          // alignItems={"center"}
+          // justifyContent={"center"}
+          textAlign={"center"}
+          // p={"5"}
+        >
           <Card
             heading={"Track up to 84 nutrients and other compounds"}
-            icon={<Icon as={FcAssistant} w={10} h={10} />}
+            icon={<Icon as={FcAddDatabase} w={20} h={20} />}
             description={
               "Log your meals and track all your macro and micronutrients."
             }
             href={"#"}
-          />
+          />{" "}
+        </GridItem>
+        <GridItem>
+          {" "}
           <Card
             heading={"Log meals, exercise and health metrics"}
-            icon={<Icon as={FcCollaboration} w={10} h={10} />}
+            icon={<Icon as={FcIpad} w={20} h={20} />}
             description={
               "Plus, you can create custom foods, recipes, exercises and metrics."
             }
             href={"#"}
           />
+        </GridItem>
+        <GridItem>
+          {" "}
           <Card
             heading={"Get valuable health reports and charts"}
-            icon={<Icon as={FcDonate} w={10} h={10} />}
+            icon={<Icon as={FcComboChart} w={20} h={20} />}
             description={"Learn how nutrients and metrics correlate over time."}
             href={"#"}
-          />
+          />{" "}
+        </GridItem>
+        <GridItem>
           <Card
             heading={"Custom diet settings"}
-            icon={<Icon as={FcManager} w={10} h={10} />}
+            icon={<Icon as={FcEngineering} w={20} h={20} />}
             description={
               "Set weight, macro and nutrient targets to meet your goals."
             }
             href={"#"}
-          />
+          />{" "}
+        </GridItem>
+        <GridItem>
+          {" "}
           <Card
             heading={"Fasting timer"}
-            icon={<Icon as={FcAbout} w={10} h={10} />}
+            icon={<Icon as={FcAlarmClock} w={20} h={20} />}
             description={
               "Track your intermittent fasts and see their effect over time."
             }
             href={"#"}
-          />
+          />{" "}
+        </GridItem>
+
+        <GridItem>
+          {" "}
           <Card
             heading={"Diet support"}
-            icon={<Icon as={FcAbout} w={10} h={10} />}
+            icon={<Icon as={FcManager} w={20} h={20} />}
             description={
               "Whether you’re Keto, Vegan, or on one recommended by your doctor."
             }
             href={"#"}
-          />
-        </Flex>
-      </Container>
+          />{" "}
+        </GridItem>
+      </SimpleGrid>
     </Box>
   );
 }
