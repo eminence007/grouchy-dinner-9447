@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../Style/Signup.css";
 import { findDOMNode } from "react-dom";
+import { useDispatch } from "react-redux";
+import { rgeister } from "../Redux/auth/action";
 
 const SignUp = () => {
+  const dispatch=useDispatch()
   const Dates = new Array(31).fill(0);
   const Month = new Array(12).fill(0);
   const Year = new Array(2022).fill(1980);
@@ -54,11 +57,13 @@ const SignUp = () => {
   }
   function submitHandler() {
     setUser((pre) => {
-      console.log({ ...pre, dob: `${date}-${month}-${year}` });
-      axios.post("http://loaclhost:8080/user/register", {
-        ...pre,
-        dob: `${date}-${month}-${year}`,
-      });
+      //console.log({ ...pre, dob: `${date}-${month}-${year}` });
+      // axios.post("http://loaclhost:8080/user/register", {
+      //   ...pre,
+      //   dob: `${date}-${month}-${year}`,
+      // });
+      dispatch(rgeister({ ...pre, dob: `${date}-${month}-${year}` }))
+
       return { ...pre, dob: `${date}-${month}-${year}` };
     });
 
