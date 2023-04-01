@@ -14,7 +14,7 @@ app.use("/user",userRoute);
 app.use('/exercise', exerciseRoute); 
 // app.use(auth)
 app.use("/food",foodRoute)
-app.use("/diary",diary)
+// app.use("/diary",diary)
 
 app.listen(4500, async(req,res)=>{
     try{

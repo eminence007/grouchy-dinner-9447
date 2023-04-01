@@ -1,11 +1,11 @@
 const express=require("express")
 const diaryRoute = express.Router();
-const {Exercise}=require("../model/diaryExcercise.model")
+const {ExerciseModel}=require("../model/diaryExcercise.model")
 const {Food} = require("../model/diaryfood.model")
 
 diaryRoute.get("/exercise",async(req,res)=>{
     try{
-            const notes=await Exercise.find()
+            const notes=await ExerciseModel.find()
             res.status(200).send(notes)
     } catch(err){
         res.status(400).send({"msg":err.message}) 
@@ -23,7 +23,7 @@ diaryRoute.get("/food",async(req,res)=>{
 
 diaryRoute.post("/addExercise", async (req, res) => {
     try {
-      const exercise = new Exercise(req.body);
+      const exercise = new ExerciseModel(req.body);
       await exercise.save();
       res.status(200).send({ "msg": "A new exercise has been added" });
     } catch (err) {
@@ -56,7 +56,7 @@ diaryRoute.patch("/exercise/:_id", async(req,res)=>{
     const {_id} = req.params
     const payload = req.body;
     try{
-      await Exercise.findByIdAndUpdate({_id:_id},payload)
+      await ExerciseModel.findByIdAndUpdate({_id:_id},payload)
     res.status(200).send({"msg":"user is updated"})
     }catch(err){
       res.status(500).send(err)
@@ -66,7 +66,7 @@ diaryRoute.patch("/exercise/:_id", async(req,res)=>{
 diaryRoute.delete("/food/:_id",async(req,res)=>{
     const {_id}= req.params
     try {
-        await Exercise.findByIdAndDelete({_id:_id})
+        await ExerciseModel.findByIdAndDelete({_id:_id})
         res.status(200).send({"msg":"user is delete"})
     } catch (error) {
         res.status(500).send(err)
