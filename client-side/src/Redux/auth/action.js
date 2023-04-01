@@ -21,10 +21,11 @@ const Set_User_Loading=(payload)=>{
     }
 }
 
-export const login=({name,password})=>(dispatch)=>{
+export const login=({email,password})=>(dispatch)=>{
+    console.log("cliccke2")
     dispatch(Set_User_Loading(true))
-    axios.post(`${url}/user/login`,{
-            name:name,password:password
+    return axios.post(`${url}/user/signIn`,{
+        email:email,password:password
         }).then((res)=>{
         console.log(res)
         dispatch(Log_In_Succ(res.data.token))
@@ -32,14 +33,15 @@ export const login=({name,password})=>(dispatch)=>{
         dispatch(Log_In_Err)
       
     })
+  
 
 
 }
 export const rgeister=({  email,password,sex,dob,height,weight})=>(dispatch)=>{
     console.log("clicked")
     dispatch(Set_User_Loading(true))
-    let a=axios.post(`${url}/user/register`,{
-        email,password,sex,dob,height,weight
+    let a=axios.post(`${url}/user/signup`,{
+        email,password,sex,dob,height,weight,conferm_password:password
     }).then((res)=>{
         console.log(res)
         dispatch(Set_User_Loading(false))

@@ -5,10 +5,13 @@ const {userRoute}=require("./routes/user.routes")
 const {foodRoute}=require("./routes/food.routes")
 const {auth}=require("./middleware/auth.middleware")
 const {diary} = require("./routes/diary.route")
+var cors = require('cors')
 const app=express();
 require("dotenv").config()
+app.use(cors({
+    origin:"*"
+}))
 app.use(express.json());
-
 app.use("/user",userRoute);
 
 
@@ -23,7 +26,7 @@ app.listen(process.env.PORT, async(req,res)=>{
         console.log(`Mongo is connected on port ${process.env.PORT}`);
 
     }catch(err){
-        console.log(`Mongo is not connected so check you console`);
+        console.log(err,`Mongo is not connected so check you console`);
     }
 
 })

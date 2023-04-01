@@ -74,7 +74,7 @@ const SignUp = () => {
       <h2 className="text-center mb-2 text-lg font-extrabold">
         Create Your Free Account
       </h2>
-      <div className="container mx-auto px-20 p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4">
+      <div className=" mx-auto px-20 p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4">
         <div className="mb-2 rounded p-2 ">
           <label className="" htmlFor="email">
             Email
@@ -115,7 +115,7 @@ const SignUp = () => {
       </div>
 
       {/* Profile detail start */}
-      <div className="container mx-auto px-20  p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4">
+      <div className=" mx-auto px-20  p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4">
         <h2 className="text-center mb-2 text-lg font-extrabold">
           Profile Detail
         </h2>
@@ -283,7 +283,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-20 p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4 text-md ">
+      <div className=" mx-auto px-20 p-3 rounded-lg bg-white shadow-md shadow-orange-100 mb-4 text-md ">
         <h2 className="text-center mb-2 text-lg font-extrabold">
           Terms of Service & Privacy Settings
         </h2>

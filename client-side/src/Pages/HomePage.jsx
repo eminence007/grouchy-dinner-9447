@@ -13,7 +13,7 @@ import ReviewSection from "../Components/Home/ReviewSection";
 const HomePage = () => {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <TopHero />
       <MediaMentions/>
       <FeaturesList1 />
@@ -22,7 +22,7 @@ const HomePage = () => {
       <AppsDevices />
       <ReviewSection />
       <ProCTA />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

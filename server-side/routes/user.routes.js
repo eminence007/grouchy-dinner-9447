@@ -6,6 +6,7 @@ const jwt=require("jsonwebtoken");
 require("dotenv").config();
 
 userRoute.post("/signup", async(req,res)=>{
+    console.log(req.body)
     const {email,password,conferm_password,sex,dob,weight,height}=req.body;
     try{
         const user= await UserModel.findOne({email})
@@ -31,6 +32,7 @@ userRoute.post("/signup", async(req,res)=>{
 
 userRoute.post("/signIn", async(req,res)=>{
     const {email,password}=req.body;
+    console.log("login ",email,password )
     try{
         const user=await UserModel.findOne({email})
         if(user){
