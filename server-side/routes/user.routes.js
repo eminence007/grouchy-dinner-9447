@@ -3,6 +3,8 @@ const userRoute=express.Router();
 const { UserModel}=require("../model/user.model")
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
+require("dotenv").config();
+
 userRoute.post("/signup", async(req,res)=>{
     const {email,password,conferm_password,sex,dob,weight,height}=req.body;
     try{
@@ -34,7 +36,7 @@ userRoute.post("/signIn", async(req,res)=>{
         if(user){
             bcrypt.compare(password, user.password, (err, result)=> {
                 if(result){
-                 res.status(200).send({"msg":"Login Successful","token":jwt.sign({ userId: user._id }, "secretkey")})
+                 res.status(200).send({"msg":"Login Successful","token":jwt.sign({ userId: user._id }, process.env.SECRET_KEY)})
                 }else{
                  res.status(400).send({"msg":"Wrong Crendential"})
                }

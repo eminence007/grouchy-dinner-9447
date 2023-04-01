@@ -30,8 +30,8 @@ const ExerciseSchema = new mongoose.Schema({
   }
 });
 
-const Exercise = mongoose.model("Exercise", ExerciseSchema);
+const DiaryExercise = mongoose.model("DiaryExercise", ExerciseSchema);
 
 module.exports = {
-  Exercise,
+    DiaryExercise
 };

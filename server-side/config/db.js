@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const connection = mongoose.connect(
-  "mongodb+srv://shashank:shashank@cluster0.pueno7h.mongodb.net/fitfuel-DB?retryWrites=true&w=majority"
-);
+const connection = mongoose.connect(process.env.MONGO_URL);
+require("dotenv").config();
 
 
 module.exports = { connection };
