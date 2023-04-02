@@ -10,7 +10,7 @@ function App() {
       <HomePage />
       {/* <SignUp /> */}
       {/* <Login /> */}
-      <AllRoutes/>
+      {/* <AllRoutes/> */}
     </div>
   );
 }

@@ -1,41 +1,40 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 
 //user shcema
-const userSchema=mongoose.Schema(
-    {
-        
-          email: {
-            type: String,
-            required: true,
-            unique: true
-          },
-          password: {
-            type: String,
-            required: true
-          },
-          
-          sex: {
-            type: String,
-            required: true
-          },
-          dob: {
-            type: Date,
-            required: true
-          },
-          weight: {
-            type: Number,
-            required: true
-          },
-          height: {
-            type: Number,
-            required: true
-          }  
+const userSchema = mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    {
-        versionKey:false
-    }
-)
+    password: {
+      type: String,
+      required: true,
+    },
 
-const UserModel=mongoose.model("user",userSchema)
+    sex: {
+      type: String,
+      required: true,
+    },
+    dob: {
+      type: Date,
+      required: true,
+    },
+    weight: {
+      type: Number,
+      required: true,
+    },
+    height: {
+      type: Number,
+      required: true,
+    },
+  },
+  {
+    versionKey: false,
+  }
+);
 
-module.exports={UserModel};
+const UserModel = mongoose.model("user", userSchema);
+
+module.exports = { UserModel };
