@@ -7,7 +7,7 @@ import AllRoutes from "./AllRoutes/AllRoutes";
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      {/* <HomePage /> */}
       {/* <SignUp /> */}
       {/* <Login /> */}
       <AllRoutes/>

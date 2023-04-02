@@ -1,0 +1,88 @@
+
+.main{
+  
+    /* border: 3px solid black; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+  margin: auto;
+  /* border: 1px solid black; */
+   
+}
+.leftSide{
+  
+    /* border: 2px solid; */
+    width: 70%;
+}
+
+.diary{
+    box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+table {
+    border: 1px solid #333;
+    width: 100%;
+}
+
+thead,tfoot {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+
+
+.rightSide{
+    /* position:relative; */
+    /* border: 1px solid; */
+    width: 30%;
+    
+    box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
+    padding: 10px;
+    height: 50vh;
+   
+}
+
+.calender{
+    padding: 2px;
+    font-size: 25px;
+    font-family: serif;
+    
+}
+
+.energySummary{
+    margin-top: 20px;
+    box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.nutrientTarget{
+    margin-top: 20px;
+    box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
+    padding: 30px;
+}
+.upgrade{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 30px;
+    /* border: 1px solid red; */
+}
+.highlitedNutrients{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .upgradeButton{
+    background-color: black;
+    color: #fff;
+} */
