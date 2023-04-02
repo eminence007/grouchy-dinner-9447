@@ -13,16 +13,16 @@ import ReviewSection from "../Components/Home/ReviewSection";
 const HomePage = () => {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <TopHero />
-      <MediaMentions/>
+      <MediaMentions />
       <FeaturesList1 />
       <FeaturesList2 />
       <CallToAction />
       <AppsDevices />
       <ReviewSection />
       <ProCTA />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

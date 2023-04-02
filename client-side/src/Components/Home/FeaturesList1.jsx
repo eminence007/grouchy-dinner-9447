@@ -82,8 +82,9 @@ export default function FeaturesList1() {
       >
         <GridItem
           // alignItems={"center"}
-          // justifyContent={"center"}
+          justifyContent={"center"}
           textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
           // p={"5"}
         >
           <Card
@@ -95,7 +96,11 @@ export default function FeaturesList1() {
             href={"#"}
           />{" "}
         </GridItem>
-        <GridItem>
+        <GridItem
+          justifyContent={"center"}
+          textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
+        >
           {" "}
           <Card
             heading={"Log meals, exercise and health metrics"}
@@ -106,7 +111,11 @@ export default function FeaturesList1() {
             href={"#"}
           />
         </GridItem>
-        <GridItem>
+        <GridItem
+          justifyContent={"center"}
+          textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
+        >
           {" "}
           <Card
             heading={"Get valuable health reports and charts"}
@@ -115,7 +124,11 @@ export default function FeaturesList1() {
             href={"#"}
           />{" "}
         </GridItem>
-        <GridItem>
+        <GridItem
+          justifyContent={"center"}
+          textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
+        >
           <Card
             heading={"Custom diet settings"}
             icon={<Icon as={FcEngineering} w={20} h={20} />}
@@ -125,7 +138,11 @@ export default function FeaturesList1() {
             href={"#"}
           />{" "}
         </GridItem>
-        <GridItem>
+        <GridItem
+          justifyContent={"center"}
+          textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
+        >
           {" "}
           <Card
             heading={"Fasting timer"}
@@ -137,7 +154,11 @@ export default function FeaturesList1() {
           />{" "}
         </GridItem>
 
-        <GridItem>
+        <GridItem
+          justifyContent={"center"}
+          textAlign={"center"}
+          ml={{ base: "0px", md: "0px", lg: "70px" }}
+        >
           {" "}
           <Card
             heading={"Diet support"}
