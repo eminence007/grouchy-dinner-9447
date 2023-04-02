@@ -4,7 +4,6 @@ import styles from "./Diary.module.css";
 import { useState } from "react";
 import Calendar from "react-calendar";
 
-
 import {
   Accordion,
   AccordionItem,
@@ -30,6 +29,7 @@ import ProgressBar from "../../Components/Diary/ProgressBar";
 import LineProgressBar from "../../Components/Diary/LineProgressBar";
 import CircularProgressTotal from "../../Components/Diary/CircularProgressTotal";
 import HighlitedCircular from "../../Components/Diary/HighlitedCircular";
+import MicroNutrientCart from "../../Components/Diary/MicroNutrientCart";
 
 const Diary = () => {
   const [value, onChange] = useState(new Date());
@@ -104,9 +104,11 @@ const Diary = () => {
             <Heading fontSize={"22px"} marginBottom={"20px"}>
               Macronutrient Targets
             </Heading>
+            <div className={styles.target}>
             {["Enerty", "Portein", "Net Carbs", "Fat"].map((el) => {
               return <LineProgressBar macro={el} />;
             })}
+            </div>
           </div>
         </div>
         <div className={styles.nutrientTarget}>
@@ -129,9 +131,9 @@ const Diary = () => {
             Nutrition Score
           </Heading>
           <div>
-            <div style={{ display: "flex", gap: "30px" }}>
+            <div style={{ display: "flex", gap: "30px",alignItems:"center" }}>
               <div>
-                <CircularProgressTotal toalPercent={"4%"} />
+                <CircularProgressTotal toalPercent={"%"} />
               </div>
               <div className={styles.upgrade}>
                 <div>
@@ -155,7 +157,7 @@ const Diary = () => {
                   </p>
                   <p>
                     Upgrade to view full set of nutrition scores representing
-                    well researched health concepts
+                    well researched health
                   </p>
                 </div>
                 <div>
@@ -164,14 +166,55 @@ const Diary = () => {
               </div>
             </div>
           </div>
-          <div >
-            <Heading fontSize={"18px"} marginTop={"30px"}>Highlited Nutrients</Heading>
+          <div>
+            <Heading fontSize={"18px"} marginTop={"30px"}>
+              Highlited Nutrients
+            </Heading>
             <div className={styles.highlitedNutrients}>
-            {["Fiber",'Iron',"Calcium","Vit.A","Vit.C","Vit.B12",'Folate',"Potasium",].map((el)=>{
-              return (
-                <HighlitedCircular name={el}/>
-              )
-            })}
+              {[
+                "Fiber",
+                "Iron",
+                "Calcium",
+                "Vit.A",
+                "Vit.C",
+                "Vit.B12",
+                "Folate",
+                "Potasium",
+              ].map((el) => {
+                return <HighlitedCircular name={el} />;
+              })}
+            </div>
+          </div>
+          <div className={styles.allMicronutritionCart}>
+            <div className={styles.leftMicronutritionCart}>
+            <div className={styles.carbohydrates}>
+              <Heading fontSize={"18px"}>Carbohydrates</Heading>
+              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                return <MicroNutrientCart name={el} />;
+              })}
+            </div>
+            <div className={styles.carbohydrates}>
+              <Heading fontSize={"18px"}>Lipits</Heading>
+              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                return <MicroNutrientCart name={el} />;
+              })}
+            </div>
+            </div>
+            <div>
+              <div>
+              <div className={styles.carbohydrates}>
+              <Heading fontSize={"18px"}>Protein</Heading>
+              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                return <MicroNutrientCart name={el} />;
+              })}
+            </div>
+            <div className={styles.carbohydrates}>
+              <Heading fontSize={"18px"}>Vitamins</Heading>
+              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                return <MicroNutrientCart name={el} />;
+              })}
+            </div>
+              </div>
             </div>
           </div>
         </div>
