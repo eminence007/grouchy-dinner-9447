@@ -366,7 +366,7 @@ const SignUp = () => {
           <div className=" text-center mt-16">
             <button
               onClick={submitHandler}
-              className="test-center border py-2 bg-green-800 rounded-xl w-52"
+              className="test-center border py-2 bg-red-400 rounded-xl w-52"
             >
               Submit
             </button>
