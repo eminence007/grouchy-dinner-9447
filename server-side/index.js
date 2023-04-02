@@ -16,9 +16,9 @@ app.use(
 app.use(express.json());
 app.use("/user", userRoute);
 
-app.use("/exercise", exerciseRoute);
+app.use("/exercise", exerciseRoute);  
 // app.use(auth)
-app.use("/food", foodRoute);
+app.use("/food", foodRoute); 
 // app.use("/diary",diary)
 
 app.listen(process.env.PORT, async (req, res) => {
