@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -21,6 +22,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+
+const Logo = (props) => {
+  return <Image width={"240px"} alt={"nav logo"} src={"new-logo-nav.png"} />;
+};
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -33,7 +38,7 @@ export default function NavBar() {
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={1}
+        // borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
@@ -52,48 +57,45 @@ export default function NavBar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            // textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
-          </Flex>
+        <Flex
+          maxW={"xl"}
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "start" }}
+        >
+          {/* This is for LOGO */}
+          <Logo />
+          {/* This is for LOGO */}
         </Flex>
 
         <Stack
           flex={{ base: 1, md: 0 }}
+          mx={5}
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
         >
+          {" "}
+          <Flex display={{ base: "none", md: "flex" }} mr={8}>
+            <DesktopNav />
+          </Flex>
           <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
-          >
-            Sign In
-          </Button>
-          <Button
+            ml={7}
+            borderRadius={10}
+            border="1.5px solid black"
+            fontSize={"lg"}
+            size={"md"}
+            width={"130px"}
+            colorScheme={"black"}
+            color={"black"}
+            bg={"white"}
+            _hover={{ bg: "black", color: "white" }}
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"pink.400"}
-            href={"#"}
-            _hover={{
-              bg: "pink.300",
-            }}
+            fontWeight={400}
+            href={"/login"}
           >
-            Sign Up
+            LOG IN
           </Button>
         </Stack>
       </Flex>
@@ -106,12 +108,14 @@ export default function NavBar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkColor = useColorModeValue("gray.800", "gray.200");
+  const linkHoverColor = useColorModeValue("gray.600", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
+  const { isOpen, onToggle } = useDisclosure();
+
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack alignItems={"center"} direction={"row"} spacing={7}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
@@ -119,7 +123,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={"xl"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -162,13 +166,13 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("white", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "gray.800" }}
             fontWeight={500}
           >
             {label}
@@ -184,7 +188,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"gray.800"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -260,41 +264,34 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Inspiration",
+    label: "Products",
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
+        label: "FIT FUEL",
+        subLabel: "For Individuals",
         href: "#",
       },
       {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
+        label: "FIT FUEL Pro",
+        subLabel: "For Healthcare Professionals",
         href: "#",
       },
     ],
   },
   {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
-  },
-  {
-    label: "Learn Design",
+    label: "Blog",
     href: "#",
   },
   {
-    label: "Hire Designers",
+    label: "Forums",
+    href: "#",
+  },
+  {
+    label: "About",
+    href: "#",
+  },
+  {
+    label: "Support",
     href: "#",
   },
 ];

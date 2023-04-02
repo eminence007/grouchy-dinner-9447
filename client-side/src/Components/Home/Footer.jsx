@@ -17,7 +17,7 @@ const Logo = (props) => {
     <Image
       width={"150px"}
       alt={"feature image"}
-      src={"fit-fuel-log-black.png"}
+      src={"new-logo-footer.png"}
     />
   );
 };
@@ -103,7 +103,7 @@ export default function Footer() {
           <Logo />
         </Flex>
         <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-          © 2022 Chakra Templates. All rights reserved
+          © 2023 FIT FUEL. All rights reserved
         </Text>
       </Box>
     </Box>
