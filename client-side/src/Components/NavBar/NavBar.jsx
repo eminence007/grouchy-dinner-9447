@@ -94,7 +94,7 @@ export default function NavBar() {
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontWeight={400}
-            href={"#"}
+            href={"/login"}
           >
             LOG IN
           </Button>

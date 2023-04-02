@@ -21,12 +21,13 @@ const Set_User_Loading = (payload) => {
 };
 
 export const login =
-  ({ name, password }) =>
+  ({ email, password }) =>
   (dispatch) => {
+    console.log("cliccke2");
     dispatch(Set_User_Loading(true));
-    axios
-      .post(`${url}/user/login`, {
-        name: name,
+    return axios
+      .post(`${url}/user/signIn`, {
+        email: email,
         password: password,
       })
       .then((res) => {
@@ -43,13 +44,14 @@ export const rgeister =
     console.log("clicked");
     dispatch(Set_User_Loading(true));
     let a = axios
-      .post(`${url}/user/register`, {
+      .post(`${url}/user/signup`, {
         email,
         password,
         sex,
         dob,
         height,
         weight,
+        conferm_password: password,
       })
       .then((res) => {
         console.log(res);

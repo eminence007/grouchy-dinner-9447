@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 userRoute.post("/signup", async (req, res) => {
+  console.log(req.body);
   const { email, password, conferm_password, sex, dob, weight, height } =
     req.body;
   try {
@@ -35,15 +36,18 @@ userRoute.post("/signup", async (req, res) => {
 
 userRoute.post("/signIn", async (req, res) => {
   const { email, password } = req.body;
+  console.log("login ", email, password);
   try {
     const user = await UserModel.findOne({ email });
     if (user) {
       bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
-          res.status(200).send({
-            msg: "Login Successful",
-            token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY),
-          });
+          res
+            .status(200)
+            .send({
+              msg: "Login Successful",
+              token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY),
+            });
         } else {
           res.status(400).send({ msg: "Wrong Crendential" });
         }
