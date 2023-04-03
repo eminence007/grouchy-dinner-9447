@@ -4,6 +4,7 @@ import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Success from "../Pages/Success";
+import { PrivateRoute } from "./PrivateRoutes";
 
 const AllRoutes = () => {
   return (
@@ -12,7 +13,15 @@ const AllRoutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/success/*" element={<Success />} />
+
+        <Route
+          path="/success/*"
+          element={
+            <PrivateRoute>
+              <Success />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
