@@ -14,11 +14,7 @@ import { ReactNode } from "react";
 
 const Logo = (props) => {
   return (
-    <Image
-      width={"150px"}
-      alt={"feature image"}
-      src={"new-logo-footer.png"}
-    />
+    <Image width={"150px"} alt={"feature image"} src={"new-logo-footer.png"} />
   );
 };
 
@@ -45,7 +41,7 @@ export default function Footer() {
               <Link href={"#"}>Features</Link>
               <Tag
                 size={"sm"}
-                bg={useColorModeValue("green.300", "green.800")}
+                bg={useColorModeValue("red.400", "green.800")}
                 ml={2}
                 color={"white"}
               >

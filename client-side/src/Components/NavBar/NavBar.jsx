@@ -23,11 +23,10 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-const Logo = (props) => {
-  return <Image width={"240px"} alt={"nav logo"} src={"new-logo-nav.png"} />;
-};
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -64,7 +63,13 @@ export default function NavBar() {
           justify={{ base: "center", md: "start" }}
         >
           {/* This is for LOGO */}
-          <Logo />
+          <Image
+            width={"240px"}
+            alt={"nav logo"}
+            src={"new-logo-nav.png"}
+            onClick={() => navigate(`/`)}
+            cursor="pointer"
+          />
           {/* This is for LOGO */}
         </Flex>
 
@@ -91,9 +96,9 @@ export default function NavBar() {
             bg={"white"}
             _hover={{ bg: "black", color: "white" }}
             as={"a"}
+            href={"/login"}
             display={{ base: "none", md: "inline-flex" }}
             fontWeight={400}
-            href={"/login"}
           >
             LOG IN
           </Button>

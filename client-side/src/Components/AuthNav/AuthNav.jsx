@@ -1,11 +1,9 @@
 import { Box, Image, Flex, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
-
-const Logo = (props) => {
-  return <Image width={"240px"} alt={"nav logo"} src={"new-logo-footer.png"} />;
-};
+import { useNavigate } from "react-router-dom";
 
 const AuthNav = () => {
+  const navigate = useNavigate();
   return (
     <Box>
       {" "}
@@ -27,7 +25,13 @@ const AuthNav = () => {
           justify={{ base: "center", md: "start" }}
         >
           {/* This is for LOGO */}
-          <Logo />
+          <Image
+            width={"240px"}
+            alt={"nav logo"}
+            src={"new-logo-footer.png"}
+            onClick={() => navigate(`/`)}
+            cursor="pointer"
+          />
           {/* This is for LOGO */}
         </Flex>
       </Flex>

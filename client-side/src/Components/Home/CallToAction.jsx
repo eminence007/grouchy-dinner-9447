@@ -33,6 +33,8 @@ export default function CallToAction() {
         </Text>
         <Stack spacing={6} direction={"row"}>
           <Button
+            as={"a"}
+            href={"/signup"}
             borderRadius={10}
             size={"lg"}
             width={"270px"}
