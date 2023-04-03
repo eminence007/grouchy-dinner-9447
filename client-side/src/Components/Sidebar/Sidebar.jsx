@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./Sidebar.css";
+
 import { FaTh, FaBars } from "react-icons/fa";
+import styles from "./Sidebar.module.css"
 
 import {
   Accordion,
@@ -66,31 +67,31 @@ const Sidebar = ({ children }) => {
   ];
 
   return (
-    <div className="container">
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
-        <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
+    <div className={styles.container}>
+       <div style={{ width: isOpen ? "300px" : "50px" }} className={styles.sidebar}>
+        <div className={styles.top_section}>
+          <h1 style={{ display: isOpen ? "block" : "none" }} className={styles.log}>
             Logo
           </h1>
-          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
+          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className={styles.bars}>
             <FaBars onClick={toggle} />
           </div>
         </div>
 
-        <NavLink to={"/dashboard"} className="link" activeclassName="active">
+        <NavLink to={"/dashboard"} className={styles.link} activeclassName={styles.active}>
           <div className="icon">{<FaTh />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
+            className={styles.link_text}
           >
             Dashboard
           </div>
         </NavLink>
-        <NavLink to={"/diary"} className="link" activeclassName="active">
-          <div className="icon">{<TbNotes />}</div>
+        <NavLink to={"/diary"} className={styles.link} activeclassName={styles.active}>
+          <div className={styles.icon}>{<TbNotes />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
+            className={styles.link_text}
           >
             Diary
           </div>
@@ -101,10 +102,10 @@ const Sidebar = ({ children }) => {
               <NavLink
                 to={el.path}
                 key={i}
-                className="link"
-                activeclassName="active"
+                className={styles.link}
+                activeclassName={styles.active}
               >
-                <div className="icon">{el.icon}</div>
+                <div className={styles.icon}>{el.icon}</div>
                 <div style={{ display: isOpen ? "block" : "none" }}>
                   <Accordion allowToggle>
                     <AccordionItem border="none">
@@ -128,35 +129,35 @@ const Sidebar = ({ children }) => {
             </>
           );
         })}
-        <NavLink to={"/plan"} className="link" activeclassName="active">
-          <div className="icon">{<HiOutlineCurrencyDollar />}</div>
+        <NavLink to={"/plan"} className={styles.link} activeclassName={styles.active}>
+          <div className={styles.icon}>{<HiOutlineCurrencyDollar />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
+            className={styles.link_text}
           >
             Plan
           </div>
         </NavLink>
-        <NavLink to={"/help"} className="link" activeclassName="active">
-          <div className="icon">{<IoIosHelpCircleOutline />}</div>
+        <NavLink to={"/help"} className={styles.link} activeclassName={styles.active}>
+          <div className={styles.icon}>{<IoIosHelpCircleOutline />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
+            className={styles.link_text}
           >
             Help
           </div>
         </NavLink>
-        <NavLink to={"/about"} className="link" activeclassName="active">
-          <div className="icon">{<FcAbout />}</div>
+        <NavLink to={"/about"} className={styles.link} activeclassName={styles.active}>
+          <div className={styles.icon}>{<FcAbout />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
-            className="link_text"
+            className={styles.link_text}
           >
             About
           </div>
         </NavLink>
-        <hr  style={{ display: isOpen ? "block" : "none" }} className="hrtag"/>
-      </div>
+        <hr  style={{ display: isOpen ? "block" : "none" }} className={styles.hrtag}/>
+      </div> 
       
       <main>{children}</main>
     </div>

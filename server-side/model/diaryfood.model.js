@@ -58,4 +58,7 @@ const FoodDataSchema = new mongoose.Schema(
 
 const DiaryFood = mongoose.model("DiaryFood", FoodDataSchema);
 
+
+
 module.exports = { DiaryFood };
+
