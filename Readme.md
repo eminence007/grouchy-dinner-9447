@@ -28,7 +28,7 @@ Fit Fuel has been built using the following technologies:
 This project was created by Team Fit Fuel. The Team Members are 
 <br>
 
-1.Vibhor - _(Home Page)_
+1.Vibhor - _(Home Page + Deployment)_
 <br> 
 2.Ravi Rana -  _(Login, Signup)_
 <br> 
