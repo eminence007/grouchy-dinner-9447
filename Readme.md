@@ -32,9 +32,9 @@ This project was created by Team Fit Fuel. The Team Members are
 <br> 
 2.Ravi Rana -  _(Login, Signup)_
 <br> 
-3.Manju Sai - _(Backend)_
+3.Suneel Chaudhary - _(Backend)_
 <br> 
-4.Vibhor -  _(Backend)_
+4.Shashank Bijapur -  _(Backend)_
 
 ### Installation
 To install and run this project on your local machine, follow these steps:
