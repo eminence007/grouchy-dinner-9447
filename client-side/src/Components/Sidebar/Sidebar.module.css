@@ -1,18 +1,23 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
     text-decoration: none;
 }
 .container{
+    width: 100%;
     display:flex;
+    border: 5px solid red;
+    column-gap: 20px;
+    
 }
 main{
-    width: 50%;
+    
     padding: 20px;
+    
 }
 .sidebar{
     background: #000;
-    width: 50%;
     color: #fff;
     height: 100vh;
     /* transition: all 0.5s; */
@@ -26,12 +31,14 @@ main{
 .logo{
     font-size: 30px;
     cursor: pointer;
+    
 }
 .bars{
     display: flex;
     font-size: 25px;
     margin-left: 50px;
     cursor: pointer;
+    
 }
 .link{
     display: flex;
