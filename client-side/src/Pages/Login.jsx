@@ -17,7 +17,7 @@ const Login = () => {
   function signInHandler() {
     console.log("cliccke");
     dispatch(login({ email, password })).then((res) => {
-      navigate("/dashboard");
+      navigate("/success");
     });
     // axios.post("http://loaclhost:8080/user/login", { email, password });
   }

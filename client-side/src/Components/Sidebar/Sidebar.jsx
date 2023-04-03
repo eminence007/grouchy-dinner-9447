@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { FaTh, FaBars } from "react-icons/fa";
-import styles from "./Sidebar.module.css"
+import styles from "./Sidebar.module.css";
 
 import {
   Accordion,
@@ -20,6 +20,7 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { FcAbout } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
+import SuccessRoutes from "../../AllRoutes/SuccessRoutes/SuccessRoutes";
 
 const Sidebar = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,14 +48,13 @@ const Sidebar = ({ children }) => {
         { path: "target-scheduler", name: "Target Scheduler" },
         { path: "oracle", name: "Ask the Oracle" },
         { path: "serach-food", name: "Search Food" },
-     
       ],
     },
     {
       path: "/setting",
       name: "Setting",
       icon: <AiOutlineSetting />,
-      
+
       nested: [
         { path: "account", name: "Account" },
         { path: "profile-targets", name: "Profile Targets" },
@@ -68,17 +68,30 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className={styles.container}>
-       <div style={{ width: isOpen ? "300px" : "50px" }} className={styles.sidebar}>
+      <div
+        style={{ width: isOpen ? "300px" : "50px" }}
+        className={styles.sidebar}
+      >
         <div className={styles.top_section}>
-          <h1 style={{ display: isOpen ? "block" : "none" }} className={styles.log}>
+          <h1
+            style={{ display: isOpen ? "block" : "none" }}
+            className={styles.log}
+          >
             Logo
           </h1>
-          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className={styles.bars}>
+          <div
+            style={{ marginLeft: isOpen ? "50px" : "0px" }}
+            className={styles.bars}
+          >
             <FaBars onClick={toggle} />
           </div>
         </div>
 
-        <NavLink to={"/dashboard"} className={styles.link} activeclassName={styles.active}>
+        <NavLink
+          to={"/success/dashboard"}
+          className={styles.link}
+          activeclassName={styles.active}
+        >
           <div className="icon">{<FaTh />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -87,7 +100,11 @@ const Sidebar = ({ children }) => {
             Dashboard
           </div>
         </NavLink>
-        <NavLink to={"/diary"} className={styles.link} activeclassName={styles.active}>
+        <NavLink
+          to={"/success/diary"}
+          className={styles.link}
+          activeclassName={styles.active}
+        >
           <div className={styles.icon}>{<TbNotes />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -119,7 +136,11 @@ const Sidebar = ({ children }) => {
                       </h2>
                       <AccordionPanel pb={4}>
                         {el.nested.map((el) => {
-                          return <NavLink to={el.path}><Box>{el.name}</Box></NavLink>;
+                          return (
+                            <NavLink to={el.path}>
+                              <Box>{el.name}</Box>
+                            </NavLink>
+                          );
                         })}
                       </AccordionPanel>
                     </AccordionItem>
@@ -129,7 +150,11 @@ const Sidebar = ({ children }) => {
             </>
           );
         })}
-        <NavLink to={"/plan"} className={styles.link} activeclassName={styles.active}>
+        <NavLink
+          to={"/success/plan"}
+          className={styles.link}
+          activeclassName={styles.active}
+        >
           <div className={styles.icon}>{<HiOutlineCurrencyDollar />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -138,7 +163,11 @@ const Sidebar = ({ children }) => {
             Plan
           </div>
         </NavLink>
-        <NavLink to={"/help"} className={styles.link} activeclassName={styles.active}>
+        <NavLink
+          to={"/success/help"}
+          className={styles.link}
+          activeclassName={styles.active}
+        >
           <div className={styles.icon}>{<IoIosHelpCircleOutline />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -147,7 +176,11 @@ const Sidebar = ({ children }) => {
             Help
           </div>
         </NavLink>
-        <NavLink to={"/about"} className={styles.link} activeclassName={styles.active}>
+        <NavLink
+          to={"/success/about"}
+          className={styles.link}
+          activeclassName={styles.active}
+        >
           <div className={styles.icon}>{<FcAbout />}</div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
@@ -156,10 +189,16 @@ const Sidebar = ({ children }) => {
             About
           </div>
         </NavLink>
-        <hr  style={{ display: isOpen ? "block" : "none" }} className={styles.hrtag}/>
-      </div> 
-      
-      <main>{children}</main>
+        <hr
+          style={{ display: isOpen ? "block" : "none" }}
+          className={styles.hrtag}
+        />
+      </div>
+
+      {/* success router render here */}
+      <div>
+        <SuccessRoutes />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { LOGIN_RES_ERR, LOGIN_RES_SUCC, SET_USER_LOADING } from "./actionType";
 import axios from "axios";
-const url = "http://localhost:8080";
+const url = "http://localhost:4500";
 
 const Log_In_Succ = (payload) => {
   return {
