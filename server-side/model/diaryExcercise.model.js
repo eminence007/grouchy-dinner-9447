@@ -21,17 +21,17 @@ const ExerciseSchema = new mongoose.Schema({
   userId: String,
   date: {
     type: Date,
-    default: function() {
+    default: function () {
       return new Date();
     },
-    get: function(val) {
+    get: function (val) {
       return `${val.getDate()}/${val.getMonth() + 1}/${val.getFullYear()}`;
-    }
-  }
+    },
+  },
 });
 
-const Exercise = mongoose.model("Exercise", ExerciseSchema);
+const DiaryExercise = mongoose.model("DiaryExercise", ExerciseSchema);
 
 module.exports = {
-  Exercise,
+  DiaryExercise,
 };

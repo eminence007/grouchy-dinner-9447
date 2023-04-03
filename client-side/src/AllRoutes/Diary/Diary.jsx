@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Diary.module.css";
 
 import { useState } from "react";
 import Calendar from "react-calendar";
+
+import { getDiaryData } from "../../Redux/Diary/diary.action";
 
 import {
   Accordion,
@@ -31,8 +33,24 @@ import CircularProgressTotal from "../../Components/Diary/CircularProgressTotal"
 import HighlitedCircular from "../../Components/Diary/HighlitedCircular";
 import MicroNutrientCart from "../../Components/Diary/MicroNutrientCart";
 
+import { useDispatch,useSelector } from "react-redux";
+
 const Diary = () => {
   const [value, onChange] = useState(new Date());
+  const dispatch=useDispatch();
+  const {data}=useSelector((store)=>{
+    return store.diaryReducer
+  })
+ 
+  console.log(data);
+
+ 
+
+  useEffect(()=>{
+     dispatch(getDiaryData())
+  },[])
+
+  
 
   return (
     <div className={styles.main}>
