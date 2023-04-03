@@ -4,7 +4,7 @@ import styles from "./Diary.module.css";
 import { useState } from "react";
 import Calendar from "react-calendar";
 
-import { getDiaryData } from "../../Redux/Diary/diary.action";
+import { getDiaryData } from "../Redux/Diary/diary.action";
 
 import {
   Accordion,
@@ -27,11 +27,11 @@ import { FaRunning } from "react-icons/fa";
 import { BsFillHeartPulseFill } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
 import { RxQuestionMarkCircled } from "react-icons/rx";
-import ProgressBar from "../../Components/Diary/ProgressBar";
-import LineProgressBar from "../../Components/Diary/LineProgressBar";
-import CircularProgressTotal from "../../Components/Diary/CircularProgressTotal";
-import HighlitedCircular from "../../Components/Diary/HighlitedCircular";
-import MicroNutrientCart from "../../Components/Diary/MicroNutrientCart";
+import ProgressBar from "../Components/Diary/ProgressBar";
+import LineProgressBar from "../Components/Diary/LineProgressBar";
+import CircularProgressTotal from "../Components/Diary/CircularProgressTotal";
+import HighlitedCircular from "../Components/Diary/HighlitedCircular";
+import MicroNutrientCart from "../Components/Diary/MicroNutrientCart";
 
 import { useDispatch,useSelector } from "react-redux";
 

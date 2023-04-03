@@ -83,10 +83,9 @@ export default function NavBar() {
             ml={7}
             borderRadius={10}
             border="1.5px solid black"
-            px={6}
-            fontSize={"xl"}
+            fontSize={"lg"}
             size={"md"}
-            width={"140px"}
+            width={"130px"}
             colorScheme={"black"}
             color={"black"}
             bg={"white"}
@@ -94,7 +93,7 @@ export default function NavBar() {
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
             fontWeight={400}
-            href={"#"}
+            href={"/login"}
           >
             LOG IN
           </Button>

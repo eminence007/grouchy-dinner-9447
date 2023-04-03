@@ -15,7 +15,7 @@ const HomePage = () => {
     <>
       <NavBar />
       <TopHero />
-      <MediaMentions/>
+      <MediaMentions />
       <FeaturesList1 />
       <FeaturesList2 />
       <CallToAction />

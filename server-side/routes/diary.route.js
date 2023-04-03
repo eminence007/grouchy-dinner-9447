@@ -85,4 +85,6 @@ diaryRoute.delete("/excercise/:_id", async (req, res) => {
 
 module.exports = {
   diaryRoute,
+
 };
+

@@ -34,4 +34,6 @@ const DiaryExercise = mongoose.model("DiaryExercise", ExerciseSchema);
 
 module.exports = {
   DiaryExercise,
+
 };
+

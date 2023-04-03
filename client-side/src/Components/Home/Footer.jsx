@@ -103,7 +103,7 @@ export default function Footer() {
           <Logo />
         </Flex>
         <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-          © 2022 Chakra Templates. All rights reserved
+          © 2023 FIT FUEL. All rights reserved
         </Text>
       </Box>
     </Box>
