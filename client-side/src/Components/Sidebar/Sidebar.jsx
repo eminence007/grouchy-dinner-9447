@@ -69,16 +69,17 @@ const Sidebar = ({ children }) => {
   return (
     <div className={styles.container}>
       <div
-        style={{ width: isOpen ? "300px" : "50px" }}
+        style={{ width: isOpen ? "300px" : "75px" }}
         className={styles.sidebar}
       >
         <div className={styles.top_section}>
-          <h1
+          <img
             style={{ display: isOpen ? "block" : "none" }}
-            className={styles.log}
-          >
-            Logo
-          </h1>
+            src={"new-logo-footer.png"}
+            alt={"logo"}
+            width={"50%"}
+          />
+
           <div
             style={{ marginLeft: isOpen ? "50px" : "0px" }}
             className={styles.bars}

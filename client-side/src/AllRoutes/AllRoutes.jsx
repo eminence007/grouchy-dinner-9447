@@ -17,9 +17,9 @@ const AllRoutes = () => {
         <Route
           path="/success/*"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Success />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         />
       </Routes>
