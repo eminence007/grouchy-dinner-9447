@@ -20,9 +20,33 @@ import {
   VStack,
   Button,
   border,
+  Modal,
+  ModalContent,
+  ModalOverlay,
+  useDisclosure,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  Text,
+  ModalFooter,
+  FormLabel,
+  Input,
+  FormHelperText,
+  FormControl,
+  InputGroup,
+  InputLeftElement,
+  InputRightAddon,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
 } from "@chakra-ui/react";
 
+import { Search2Icon } from "@chakra-ui/icons";
+
 import { DiApple } from "react-icons/di";
+import { RxMixerHorizontal } from "react-icons/rx";
 import { FaRunning } from "react-icons/fa";
 import { BsFillHeartPulseFill } from "react-icons/bs";
 import { GrNotes } from "react-icons/gr";
@@ -33,24 +57,39 @@ import CircularProgressTotal from "../Components/Diary/CircularProgressTotal";
 import HighlitedCircular from "../Components/Diary/HighlitedCircular";
 import MicroNutrientCart from "../Components/Diary/MicroNutrientCart";
 
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Diary = () => {
   const [value, onChange] = useState(new Date());
-  const dispatch=useDispatch();
-  const {data}=useSelector((store)=>{
-    return store.diaryReducer
-  })
- 
+  const dispatch = useDispatch();
+  const { data } = useSelector((store) => {
+    return store.diaryReducer;
+  });
+
   console.log(data);
 
- 
+  useEffect(() => {
+    dispatch(getDiaryData());
+  }, []);
 
-  useEffect(()=>{
-     dispatch(getDiaryData())
-  },[])
+  const OverlayOne = () => (
+    <ModalOverlay
+      bg="blackAlpha.300"
+      backdropFilter="blur(10px) hue-rotate(90deg)"
+    />
+  );
 
-  
+  const OverlayTwo = () => (
+    <ModalOverlay
+      bg="none"
+      backdropFilter="auto"
+      backdropInvert="80%"
+      backdropBlur="2px"
+    />
+  );
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = React.useState(<OverlayOne />);
 
   return (
     <div className={styles.main}>
@@ -61,7 +100,87 @@ const Diary = () => {
               <HStack fontWeight={"bold"} gap={"30px"}>
                 <HStack>
                   <DiApple size={"30px"} />
-                  <Box>FOOD</Box>
+                  <Box
+                    ml="4"
+                    onClick={() => {
+                      setOverlay(<OverlayTwo />);
+                      onOpen();
+                    }}
+                  >
+                    FOOD
+                  </Box>
+
+                  <Modal
+                    size={"6xl"}
+                    isCentered
+                    isOpen={isOpen}
+                    onClose={onClose}
+                  >
+                    {overlay}
+                    <ModalContent>
+                      <ModalHeader>Add Food to Diary</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <FormControl>
+                          <InputGroup>
+                            <InputLeftElement
+                              pointerEvents="none"
+                              children={
+                                <Search2Icon
+                                  color="blue.300"
+                                  fontSize={"20px"}
+                                />
+                              }
+                            />
+                            <Input type="search" placeholder="Search" />
+                            <InputRightAddon children={<RxMixerHorizontal />} />
+                            <Button>search</Button>
+                          </InputGroup>
+                        </FormControl>
+                        <Tabs>
+                          <TabList>
+                            <Tab>All</Tab>
+                            <Tab>Favariote</Tab>
+                            <Tab>Common Food</Tab>
+                            <Tab>Supliments</Tab>
+                            <Tab>Brands</Tab>
+                            <Tab>Restaurants</Tab>
+                            <Tab>Customs</Tab>
+                          </TabList>
+
+                          <TabPanels>
+                            <TabPanel>
+                              <p>one!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>two!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>three!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>one!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>two!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>three!</p>
+                            </TabPanel>
+                            <TabPanel>
+                              <p>three!</p>
+                            </TabPanel>
+                          </TabPanels>
+                        </Tabs>
+                         <Box>
+                            {/* {data.map((el)=>el.map((ele)=>console.log(ele)))} */}
+                         </Box>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button onClick={onClose}>Close</Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
                 </HStack>
                 <HStack>
                   <FaRunning />
@@ -123,9 +242,9 @@ const Diary = () => {
               Macronutrient Targets
             </Heading>
             <div className={styles.target}>
-            {["Enerty", "Portein", "Net Carbs", "Fat"].map((el) => {
-              return <LineProgressBar macro={el} />;
-            })}
+              {["Enerty", "Portein", "Net Carbs", "Fat"].map((el) => {
+                return <LineProgressBar macro={el} />;
+              })}
             </div>
           </div>
         </div>
@@ -149,7 +268,7 @@ const Diary = () => {
             Nutrition Score
           </Heading>
           <div>
-            <div style={{ display: "flex", gap: "30px",alignItems:"center" }}>
+            <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
               <div>
                 <CircularProgressTotal toalPercent={"%"} />
               </div>
@@ -205,33 +324,33 @@ const Diary = () => {
           </div>
           <div className={styles.allMicronutritionCart}>
             <div className={styles.leftMicronutritionCart}>
-            <div className={styles.carbohydrates}>
-              <Heading fontSize={"18px"}>Carbohydrates</Heading>
-              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
-                return <MicroNutrientCart name={el} />;
-              })}
-            </div>
-            <div className={styles.carbohydrates}>
-              <Heading fontSize={"18px"}>Lipits</Heading>
-              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
-                return <MicroNutrientCart name={el} />;
-              })}
-            </div>
+              <div className={styles.carbohydrates}>
+                <Heading fontSize={"18px"}>Carbohydrates</Heading>
+                {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                  return <MicroNutrientCart name={el} />;
+                })}
+              </div>
+              <div className={styles.carbohydrates}>
+                <Heading fontSize={"18px"}>Lipits</Heading>
+                {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                  return <MicroNutrientCart name={el} />;
+                })}
+              </div>
             </div>
             <div>
               <div>
-              <div className={styles.carbohydrates}>
-              <Heading fontSize={"18px"}>Protein</Heading>
-              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
-                return <MicroNutrientCart name={el} />;
-              })}
-            </div>
-            <div className={styles.carbohydrates}>
-              <Heading fontSize={"18px"}>Vitamins</Heading>
-              {["fiber", "starch", "suger", "netCarbs"].map((el) => {
-                return <MicroNutrientCart name={el} />;
-              })}
-            </div>
+                <div className={styles.carbohydrates}>
+                  <Heading fontSize={"18px"}>Protein</Heading>
+                  {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                    return <MicroNutrientCart name={el} />;
+                  })}
+                </div>
+                <div className={styles.carbohydrates}>
+                  <Heading fontSize={"18px"}>Vitamins</Heading>
+                  {["fiber", "starch", "suger", "netCarbs"].map((el) => {
+                    return <MicroNutrientCart name={el} />;
+                  })}
+                </div>
               </div>
             </div>
           </div>
