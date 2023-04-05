@@ -7,17 +7,19 @@ const ExerciseSchema = new mongoose.Schema({
   energy : { type: Number, required: true },
   date: {
     type: Date,
-    default: function() {
+    default: function () {
       return new Date();
     },
-    get: function(val) {
+    get: function (val) {
       return `${val.getDate()}/${val.getMonth() + 1}/${val.getFullYear()}`;
-    }
-  }
+    },
+  },
 });
 
 const DiaryExercise = mongoose.model("DiaryExercise", ExerciseSchema);
 
 module.exports = {
-    DiaryExercise
+  DiaryExercise,
+
 };
+

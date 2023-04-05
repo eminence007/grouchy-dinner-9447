@@ -1,11 +1,15 @@
 import "./App.css";
 
-import Graph from "./Pages/dashboard";
+
+import AllRoutes from "./AllRoutes/AllRoutes";
+
 
 function App() {
   return (
     <div className="App">
-      <Graph/>
+
+      <AllRoutes />
+
     </div>
   );
 }

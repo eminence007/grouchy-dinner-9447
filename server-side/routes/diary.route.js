@@ -1,4 +1,4 @@
-const express=require("express")
+const express = require("express");
 const diaryRoute = express.Router();
 const {DiaryExercise}=require("../model/diaryExcercise.model")
 const {DiaryFood} = require("../model/diaryfood.model")
@@ -86,6 +86,8 @@ diaryRoute.delete("/excercise/:_id",async(req,res)=>{
     }
 })
 
-module.exports={
-    diaryRoute
-}
+module.exports = {
+  diaryRoute,
+};
+
+
