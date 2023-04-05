@@ -2,7 +2,7 @@ const express=require("express")
 const foodRoute = express.Router();
 const {FoodModel}=require("../model/food.model")
 
-foodRoute.get("/get",async(req,res)=>{
+foodRoute.get("/",async(req,res)=>{
     try{
             const foods=await FoodModel.find()
             res.status(200).send({foods})
@@ -13,7 +13,7 @@ foodRoute.get("/get",async(req,res)=>{
 
 foodRoute.post("/add",async(req,res)=>{
     try{
-            let food=new FoodModel(req.body);
+            let food= new FoodModel(req.body);
             await food.save();
             res.status(200).send({"msg":"Data has been added"})
     } catch(err){
@@ -26,5 +26,4 @@ foodRoute.post("/add",async(req,res)=>{
 module.exports={
     foodRoute
 }
-
 

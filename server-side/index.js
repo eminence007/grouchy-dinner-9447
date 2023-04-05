@@ -4,9 +4,11 @@ const {connection}=require("./config/db")
 const {userRoute}=require("./routes/user.routes")
 const {foodRoute}=require("./routes/food.routes")
 const {auth}=require("./middleware/auth.middleware")
-const {diary} = require("./routes/diary.route")
+const {diaryRoute} = require("./routes/diary.route")
+const cors=require("cors")
 const app=express();
 require("dotenv").config()
+app.use(cors())
 app.use(express.json());
 
 app.use("/user",userRoute);
@@ -15,7 +17,7 @@ app.use("/user",userRoute);
 app.use('/exercise', exerciseRoute); 
 // app.use(auth)
 app.use("/food",foodRoute)
-// app.use("/diary",diary)
+app.use("/diary",diaryRoute)
 
 app.listen(process.env.PORT, async(req,res)=>{
     try{
