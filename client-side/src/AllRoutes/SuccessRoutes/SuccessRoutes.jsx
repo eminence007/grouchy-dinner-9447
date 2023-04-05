@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
-import Graph from "../../Pages/Dashboard";
+import Graph from "../../Pages/dashboard";
 import Diary from "../Diary";
 
 const SuccessRoutes = () => {

@@ -4,7 +4,7 @@ import styles from "./Diary.module.css";
 import { useState } from "react";
 import Calendar from "react-calendar";
 
-import { getDiaryData } from "../Redux/Diary/diary.action";
+import { getDiaryData } from "../Redux/Food/food.action";
 
 import {
   Accordion,
@@ -63,7 +63,7 @@ const Diary = () => {
   const [value, onChange] = useState(new Date());
   const dispatch = useDispatch();
   const { data } = useSelector((store) => {
-    return store.diaryReducer;
+    return store.foodReducer ;
   });
 
   console.log(data);
@@ -90,6 +90,10 @@ const Diary = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = React.useState(<OverlayOne />);
+
+  const handleSingleFood = (id) => {
+    console.log(id);
+  };
 
   return (
     <div className={styles.main}>
@@ -133,7 +137,8 @@ const Diary = () => {
                               }
                             />
                             <Input type="search" placeholder="Search" />
-                            <InputRightAddon children={<RxMixerHorizontal />} />
+                            <InputRightAddon mr={4} children={<RxMixerHorizontal />} />
+                            
                             <Button>search</Button>
                           </InputGroup>
                         </FormControl>
@@ -150,31 +155,58 @@ const Diary = () => {
 
                           <TabPanels>
                             <TabPanel>
-                              <p>one!</p>
+                              <div className={styles.headingOfFood}>
+                                <h3>Description</h3>
+                                <h3>Source</h3>
+                              </div>
+                              {data.map((el) => {
+                                return (
+                                  <>
+                                    <div className={styles.singleFoodName}>
+                                      <div
+                                        className={styles.FoodName}
+                                        onClick={() => handleSingleFood(el._id)}
+                                      >
+                                        {el.foodData[0].foodName}
+                                      </div>
+                                      <div>NCCDB</div>
+                                    </div>
+                                  </>
+                                );
+                              })}
+                              {/* Apple */}
                             </TabPanel>
                             <TabPanel>
-                              <p>two!</p>
+                              {data.map((el) => (
+                                <Box>{el.foodData[0].foodName}</Box>
+                              ))}
                             </TabPanel>
                             <TabPanel>
-                              <p>three!</p>
+                              {data.map((el) => (
+                                <Box>{el.foodData[0].foodName}</Box>
+                              ))}
                             </TabPanel>
                             <TabPanel>
-                              <p>one!</p>
+                              {data.map((el) => (
+                                <Box>{el.foodData[0].foodName}</Box>
+                              ))}
                             </TabPanel>
                             <TabPanel>
-                              <p>two!</p>
+                              {data.map((el) => (
+                                <Box>{el.foodData[0].foodName}</Box>
+                              ))}
                             </TabPanel>
                             <TabPanel>
-                              <p>three!</p>
+                              {data.map((el) => (
+                                <Box>{el.foodData[0].foodName}</Box>
+                              ))}
                             </TabPanel>
                             <TabPanel>
                               <p>three!</p>
                             </TabPanel>
                           </TabPanels>
                         </Tabs>
-                         <Box>
-                            {/* {data.map((el)=>el.map((ele)=>console.log(ele)))} */}
-                         </Box>
+                        <Box></Box>
                       </ModalBody>
                       <ModalFooter>
                         <Button onClick={onClose}>Close</Button>
@@ -320,6 +352,9 @@ const Diary = () => {
               ].map((el) => {
                 return <HighlitedCircular name={el} />;
               })}
+              {/* {data.map((el)=>el.foodData[0].HighlightedNutrients.map((ele)=>{
+                  return <HighlitedCircular name={ele.name} availableIn100g={ele.availableIn100g}/>
+                }))} */}
             </div>
           </div>
           <div className={styles.allMicronutritionCart}>

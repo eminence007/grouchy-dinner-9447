@@ -18,7 +18,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use("/user", userRoute);
+app.use("/user", userRoute); 
 
 
 
@@ -37,7 +37,7 @@ app.listen(process.env.PORT, async (req, res) => {
   } catch (err) {
     console.log(err, `Mongo is not connected so check you console`);
   }
-
+ 
 
 
 });
