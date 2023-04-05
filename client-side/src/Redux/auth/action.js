@@ -33,6 +33,7 @@ export const login =
       .then((res) => {
         console.log(res);
         dispatch(Log_In_Succ(res.data.token));
+        console.log("res.data.token:", res.data.token);
       })
       .catch((err) => {
         dispatch(Log_In_Err);

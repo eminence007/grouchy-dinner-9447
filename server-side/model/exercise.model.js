@@ -12,11 +12,13 @@ const TypeSchema = new mongoose.Schema({
 
 const ActivitySchema = new mongoose.Schema({
   name: { type: String, required: true },
+  image: { type: String, required: true },
   types: [TypeSchema],
 });
 
 const ExerciseSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  image: { type: String, required: true },
   activities: [ActivitySchema],
   userId: String,
 });
