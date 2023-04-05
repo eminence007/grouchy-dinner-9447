@@ -1,4 +1,4 @@
-import * as types from './diary.actionType';
+import * as types from './food.actionType';
 
 
 

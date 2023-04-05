@@ -104,3 +104,26 @@ thead,tfoot {
     margin-right: 20px;
 }
 
+.headingOfFood{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+.FoodName{
+    padding: 2px;
+}
+.FoodName:hover{
+    
+    
+}
+
+.singleFoodName{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.singleFoodName:hover{
+    background-color: #f2eaea;
+    cursor: pointer;
+}

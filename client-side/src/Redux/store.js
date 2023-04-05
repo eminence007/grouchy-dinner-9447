@@ -1,13 +1,13 @@
 import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
 import { reducer as authReducer } from "./auth/reducer";
 
-import { reducer as diaryReducer } from "./Diary/diary.reducer";
+import { reducer as foodReducer } from "./Food/food.reducer";
 
 import thunk from "redux-thunk";
 
 const allreducer = combineReducers({
   authReducer,
-  diaryReducer,
+  foodReducer,
 });
 
 
