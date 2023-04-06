@@ -4,12 +4,18 @@ const { Exercise } = require("../model/exercise.model");
 
 exerciseRoute.get("/", async (req, res) => {
   try {
-    const notes = await Exercise.find();
-    res.status(200).send(notes);
+    let query = {};
+    if (req.query.search) {
+      const searchQuery = req.query.search;
+      query = { name: { $regex: searchQuery, $options: "i" } };
+    }
+    const exercises = await Exercise.find(query);
+    res.status(200).send(exercises);
   } catch (err) {
     res.status(400).send({ msg: err.message });
   }
 });
+
 
 exerciseRoute.post("/add", async (req, res) => {
   try {
