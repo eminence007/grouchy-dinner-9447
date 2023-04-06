@@ -62,7 +62,7 @@ thead,tfoot {
     
 }
 .target{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     
 }
@@ -99,7 +99,7 @@ thead,tfoot {
     /* width: 400px; */
     box-shadow: rgba(178, 58, 100, 0.35) 0px 5px 15px;
     padding: 20px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-bottom: 20px;
     margin-right: 20px;
 }
@@ -126,4 +126,34 @@ thead,tfoot {
 .singleFoodName:hover{
     background-color: #f2eaea;
     cursor: pointer;
+}
+
+.MacroNutrientStatus{
+    
+    /* border: 2px solid; */
+}
+
+.MacroNutrientStatusTop{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid red; */
+    margin-bottom: 50px;
+}
+.ProgressFoodStatus{
+    width: 150px;
+}
+
+
+
+ li::before{
+    content: "•"; color: green;
+    display: inline-block; width: 1em;
+    margin-left: -1em;
+    font-size:20px;
+}
+
+.quantity{
+    display: flex;
+    gap: 5px;
 }

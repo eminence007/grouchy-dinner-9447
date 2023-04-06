@@ -41,6 +41,19 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Select,
+  Stack,
+  Flex,
+} from "@chakra-ui/react";
+
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 
 import { Search2Icon } from "@chakra-ui/icons";
@@ -58,12 +71,13 @@ import HighlitedCircular from "../Components/Diary/HighlitedCircular";
 import MicroNutrientCart from "../Components/Diary/MicroNutrientCart";
 
 import { useDispatch, useSelector } from "react-redux";
+import ProgressFoodStatus from "../Components/Diary/ProgressFoodStatus";
 
 const Diary = () => {
   const [value, onChange] = useState(new Date());
   const dispatch = useDispatch();
   const { data } = useSelector((store) => {
-    return store.foodReducer ;
+    return store.foodReducer;
   });
 
   console.log(data);
@@ -88,8 +102,34 @@ const Diary = () => {
     />
   );
 
+  const Feature = ({ text,  iconBg,wieght,percentage }) => {
+    return (
+      <Stack direction={'row'} align={'center'}>
+        <Flex
+        marginBottom={"5px"}
+          w={7}
+          h={7}
+          align={'center'}
+          justify={'center'}
+          rounded={'full'}
+          bg={iconBg}>
+         
+          
+        </Flex>
+        <Text fontWeight={600}>{text}</Text>
+        <Text fontWeight={600}>{wieght}</Text>
+        <Text fontWeight={600}>{percentage}</Text>
+
+      </Stack>
+    );
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [overlay, setOverlay] = React.useState(<OverlayOne />);
+
+  const [overlay, setOverlay] = React.useState(<OverlayTwo />);
+  const btnRef = React.useRef();
+  const [drawerStatus, setDrawerStatus] = useState(false);
+  const [exerciseStatus, setExerciseStatus] = useState(false);
 
   const handleSingleFood = (id) => {
     console.log(id);
@@ -137,8 +177,11 @@ const Diary = () => {
                               }
                             />
                             <Input type="search" placeholder="Search" />
-                            <InputRightAddon mr={4} children={<RxMixerHorizontal />} />
-                            
+                            <InputRightAddon
+                              mr={4}
+                              children={<RxMixerHorizontal />}
+                            />
+
                             <Button>search</Button>
                           </InputGroup>
                         </FormControl>
@@ -162,7 +205,12 @@ const Diary = () => {
                               {data.map((el) => {
                                 return (
                                   <>
-                                    <div className={styles.singleFoodName}>
+                                    <div
+                                      ref={btnRef}
+                                      colorScheme="teal"
+                                      onClick={() => setDrawerStatus(true)}
+                                      className={styles.singleFoodName}
+                                    >
                                       <div
                                         className={styles.FoodName}
                                         onClick={() => handleSingleFood(el._id)}
@@ -171,6 +219,98 @@ const Diary = () => {
                                       </div>
                                       <div>NCCDB</div>
                                     </div>
+                                    <Drawer
+                                      size={"sm"}
+                                      maxW={"5xl"}
+                                      isOpen={drawerStatus}
+                                      placement="right"
+                                      onClose={() => setDrawerStatus(false)}
+                                      finalFocusRef={btnRef}
+                                    >
+                                      <DrawerOverlay />
+                                      <DrawerContent>
+                                        <DrawerCloseButton />
+                                        <DrawerHeader>
+                                          Food Name Hoga Idhar
+                                        </DrawerHeader>
+
+                                        <DrawerBody>
+                                          <div
+                                            className={
+                                              styles.MacroNutrientStatus
+                                            }
+                                          >
+                                            <div
+                                              className={
+                                                styles.MacroNutrientStatusTop
+                                              }
+                                            >
+                                              <div
+                                                className={
+                                                  styles.ProgressFoodStatus
+                                                }
+                                              >
+                                                <ProgressFoodStatus />
+                                              </div>
+                                              <div>
+                                                {/* <ul>
+                                                  <li>Protein</li>
+                                                  <li>Net Carbs</li>
+                                                  <li>Fat</li>
+                                                </ul> */}
+                                                <Feature
+                                                 
+                                                  iconBg="green"
+                                                  text={"Protein"}
+                                                  wieght={"40g"}
+                                                  percentage={"(30%)"}
+                                                />
+                                                <Feature
+                                                  
+                                                  iconBg="green"
+                                                  text={"Net Carbs"}
+                                                  wieght={"40g"}
+                                                  percentage={"(30%)"}
+                                                />
+                                                <Feature
+                                                  
+                                                  iconBg="red"
+                                                  text={"Fat"}
+                                                  wieght={"40g"}
+                                                  percentage={"(30%)"}
+                                                />
+                                              </div>
+                                            </div>
+                                            <div>
+                                              <p>Serving Size</p>
+                                              <div className={styles.quantity}>
+                                                <Input
+                                                  htmlSize={1}
+                                                  width="auto"
+                                                />
+                                                <Select placeholder="Select option">
+                                                  <option value="g">g</option>
+                                                  <option value="kg">kg</option>
+                                                </Select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </DrawerBody>
+
+                                        <DrawerFooter>
+                                          <Button
+                                            variant="outline"
+                                            mr={3}
+                                            onClick={onClose}
+                                          >
+                                            Cancel
+                                          </Button>
+                                          <Button colorScheme="blue">
+                                            Save
+                                          </Button>
+                                        </DrawerFooter>
+                                      </DrawerContent>
+                                    </Drawer>
                                   </>
                                 );
                               })}
@@ -216,7 +356,14 @@ const Diary = () => {
                 </HStack>
                 <HStack>
                   <FaRunning />
-                  <Box>EXERCISE</Box>
+                  <Box
+                    onClick={() => {
+                      setOverlay(<OverlayOne />);
+                      onOpen();
+                    }}
+                  >
+                    EXERCISE
+                  </Box>
                 </HStack>
                 <HStack>
                   <BsFillHeartPulseFill />

@@ -32,7 +32,8 @@ const NutrientSchema = new mongoose.Schema({
 
 const FoodSchema = new mongoose.Schema({
   foodName: { type: String },
-  Macronutrient: { type: MacronutrientSchema },
+  TotalCalories: {type: Number},
+  Macronutrient: [{ type: MacronutrientSchema }],
   HighlightedNutrients: [{ type: NutrientSchema }],
   Vitamins: [{ type: NutrientSchema }],
   Minerals: [{ type: NutrientSchema }],
@@ -51,5 +52,3 @@ const FoodModel = mongoose.model("FoodData", FoodDataSchema);
 
 
 module.exports = { FoodModel };
-
-
