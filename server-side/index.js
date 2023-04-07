@@ -22,9 +22,9 @@ app.use("/user", userRoute);
 
 
 
-app.use("/exercise", exerciseRoute);  
+app.use("/exercise", exerciseRoute);   
 
-
+app.use(auth)
 app.use("/food",foodRoute)
 app.use("/diary",diaryRoute)
 
@@ -33,12 +33,12 @@ app.use("/diary",diaryRoute)
 app.listen(process.env.PORT, async (req, res) => {
   try {
     await connection;
-    console.log(`Mongo is connected on port ${process.env.PORT}`);
+    console.log("Mongo is connected");   
   } catch (err) {
     console.log(err, `Mongo is not connected so check you console`);
   }
  
-
+  console.log(`Server is running on port ${process.env.PORT}`);
 
 });
 

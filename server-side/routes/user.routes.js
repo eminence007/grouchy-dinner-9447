@@ -12,7 +12,7 @@ userRoute.post("/signup", async (req, res) => {
   try {
     const user = await UserModel.findOne({ email });
     if (user) {
-      res.status(400).send({ msg: "User already exist" });
+      res.status(200).send({ msg: "User already exist" });
     } else if (password !== conferm_password) {
       res.status(400).send({ msg: "Make sure passwords entered are the same" });
     } else {
@@ -47,6 +47,7 @@ userRoute.post("/signIn", async (req, res) => {
             .send({
               msg: "Login Successful",
               token: jwt.sign({ userId: user._id }, process.env.SECRET_KEY),
+              user:user
             });
         } else {
           res.status(400).send({ msg: "Wrong Crendential" });
@@ -57,6 +58,8 @@ userRoute.post("/signIn", async (req, res) => {
     res.status(400).send({ err: err.message });
   }
 });
+
+
 
 
 module.exports = { userRoute };

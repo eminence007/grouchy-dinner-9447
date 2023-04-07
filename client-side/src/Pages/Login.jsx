@@ -9,17 +9,24 @@ import AuthNav from "../Components/AuthNav/AuthNav";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  
   let { token, loading } = useSelector((state) => {
     return state.authReducer;
   });
-  const dispatch = useDispatch();
-  function signInHandler() {
+
+  const signInHandler = async() =>{
     console.log("cliccke");
-    dispatch(login({ email, password })).then((res) => {
-      navigate("/success");
-    });
-    // axios.post("http://loaclhost:8080/user/login", { email, password });
+  // console.log(dispatch(login({ email, password })));
+   try{
+   let res = await dispatch(login({ email, password }))
+   console.log(res);
+   }catch(err){
+    console.log(err);
+   }
+      
   }
   return (
     <div>

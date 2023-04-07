@@ -20,19 +20,18 @@ const Set_User_Loading = (payload) => {
   };
 };
 
-export const login =
-  ({ email, password }) =>
-  (dispatch) => {
+export const login =  ({ email, password }) =>(dispatch) => {
     console.log("cliccke2");
     dispatch(Set_User_Loading(true));
-    return axios
-      .post(`${url}/user/signIn`, {
+    return axios.post(`${url}/user/signIn`, {
         email: email,
         password: password,
-      })
-      .then((res) => {
+      }).then((res) => {
         console.log(res);
+        localStorage.setItem("token", JSON.stringify(res.data.token));
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         dispatch(Log_In_Succ(res.data.token));
+        console.log( dispatch(Log_In_Succ(res.data.token)));
         console.log("res.data.token:", res.data.token);
       })
       .catch((err) => {

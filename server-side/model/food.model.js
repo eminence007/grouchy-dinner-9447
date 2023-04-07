@@ -37,11 +37,13 @@ const FoodSchema = new mongoose.Schema({
   HighlightedNutrients: [{ type: NutrientSchema }],
   Vitamins: [{ type: NutrientSchema }],
   Minerals: [{ type: NutrientSchema }],
+
 });
 
 const FoodDataSchema = new mongoose.Schema(
   {
     foodData: [{ type: FoodSchema }],
+    userId:String,
   },
   {
     versionKey: false,
