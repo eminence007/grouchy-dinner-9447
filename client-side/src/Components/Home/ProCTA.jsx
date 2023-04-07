@@ -6,84 +6,56 @@ import {
   Heading,
   Text,
   Stack,
-  StackDivider,
-  Icon,
-  useColorModeValue,
+  Button,
 } from "@chakra-ui/react";
-import {
-  IoAnalyticsSharp,
-  IoLogoBitcoin,
-  IoSearchSharp,
-} from "react-icons/io5";
-import { ReactElement } from "react";
 
-const Feature = ({ text, icon, iconBg }) => {
-  return (
-    <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
-        {icon}
-      </Flex>
-      <Text fontWeight={600}>{text}</Text>
-    </Stack>
-  );
-};
+import { ReactElement } from "react";
 
 export default function ProCTA() {
   return (
-    <Container maxW={"7xl"} py={12}>
+    <Container maxW={"full"} py={20} px={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Stack spacing={4}>
-          <Text
-            textTransform={"uppercase"}
-            color={"blue.400"}
-            fontWeight={600}
-            fontSize={"sm"}
-            bg={useColorModeValue("blue.50", "blue.900")}
-            p={2}
-            alignSelf={"flex-start"}
-            rounded={"md"}
+        <Stack
+          textAlign={"center"}
+          align={"center"}
+          spacing={{ base: 8, md: 5 }}
+          py={{ base: 20, md: 28 }}
+        >
+          <Heading
+            fontWeight={500}
+            fontSize={{ base: "3xl", sm: "4xl", md: "5xl" }}
+            lineHeight={"110%"}
           >
-            Our Story
-          </Text>
-          <Heading>A digital Product design agency</Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore
-          </Text>
-          <Stack
-            spacing={4}
-            divider={
-              <StackDivider
-                borderColor={useColorModeValue("gray.100", "gray.700")}
-              />
-            }
-          >
-            <Feature
-              icon={
-                <Icon as={IoAnalyticsSharp} color={"yellow.500"} w={5} h={5} />
-              }
-              iconBg={useColorModeValue("yellow.100", "yellow.900")}
-              text={"Business Planning"}
-            />
-            <Feature
-              icon={<Icon as={IoLogoBitcoin} color={"green.500"} w={5} h={5} />}
-              iconBg={useColorModeValue("green.100", "green.900")}
-              text={"Financial Planning"}
-            />
-            <Feature
-              icon={
-                <Icon as={IoSearchSharp} color={"purple.500"} w={5} h={5} />
-              }
-              iconBg={useColorModeValue("purple.100", "purple.900")}
-              text={"Market Analysis"}
-            />
+            FIT FUEL{" "}
+            <Text as={"span"} color={"green.400"}>
+              PRO
+            </Text>
+          </Heading>
+          <Stack>
+            <Text fontWeight={500} fontSize={"2xl"} maxW={"xl"}>
+              For Health Professionals
+            </Text>
+
+            <Text color={"gray.700"} fontSize={"lg"} maxW={"lg"}>
+              Client diet management for nutritionists, dietitians, research
+              teams, schools, and hospitals.
+            </Text>
+          </Stack>
+
+          <Stack spacing={6} direction={"row"}>
+            <Button
+              borderRadius={10}
+              border="1px solid black"
+              px={6}
+              size={"lg"}
+              width={"230px"}
+              colorScheme={"black"}
+              color={"black"}
+              bg={"white"}
+              _hover={{ bg: "black", color: "white" }}
+            >
+              Learn About Pro
+            </Button>
           </Stack>
         </Stack>
         <Flex>

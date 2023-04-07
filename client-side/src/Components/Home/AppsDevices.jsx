@@ -2,10 +2,10 @@ import { Box, Heading, Stack, Container, Image } from "@chakra-ui/react";
 
 export default function AppsDevices() {
   return (
-    <Box>
+    <Box borderBottom="1px" borderColor="gray.200" mt={10}>
       <Container maxW={"7xl"} py={5} as={Stack} spacing={12}>
         <Stack spacing={0} align={"center"}>
-          <Heading>Sync with apps and devices</Heading>
+          <Heading size="2xl">Sync with apps and devices</Heading>
         </Stack>
         <Stack spacing={0} align={"center"}>
           <Image

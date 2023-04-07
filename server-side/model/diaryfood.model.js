@@ -1,27 +1,33 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const MacronutrientSchema = new mongoose.Schema({
-  protein: [{
-    name: { type: String },
-    weight: { type: Number },
-    availableIn100g: { type: Number }
-  }],
-  Fat: [{
-    name: { type: String },
-    weight: { type: Number },
-    availableIn100g: { type: Number }
-  }],
-  Carbohydrates: [{
-    name: { type: String },
-    weight: { type: Number },
-    availableIn100g: { type: Number }
-  }]
+  protein: [
+    {
+      name: { type: String },
+      weight: { type: Number },
+      availableIn100g: { type: Number },
+    },
+  ],
+  Fat: [
+    {
+      name: { type: String },
+      weight: { type: Number },
+      availableIn100g: { type: Number },
+    },
+  ],
+  Carbohydrates: [
+    {
+      name: { type: String },
+      weight: { type: Number },
+      availableIn100g: { type: Number },
+    },
+  ],
 });
 
 const NutrientSchema = new mongoose.Schema({
   name: { type: String },
   weight: { type: Number },
-  availableIn100g: { type: Number }
+  availableIn100g: { type: Number },
 });
 
 const FoodSchema = new mongoose.Schema({
@@ -32,23 +38,27 @@ const FoodSchema = new mongoose.Schema({
   Minerals: [{ type: NutrientSchema }],
   date: {
     type: Date,
-    default: function() {
+    default: function () {
       return new Date();
     },
-    get: function(val) {
+    get: function (val) {
       return `${val.getDate()}/${val.getMonth() + 1}/${val.getFullYear()}`;
-    }
-  }
+    },
+  },
 });
 
-const FoodDataSchema = new mongoose.Schema({
-  foodData: [{ type: FoodSchema }]
-},
-{
-    versionKey:false,
-}
+const FoodDataSchema = new mongoose.Schema(
+  {
+    foodData: [{ type: FoodSchema }],
+  },
+  {
+    versionKey: false,
+  }
 );
 
-const DiaryFood = mongoose.model('DiaryFood', FoodDataSchema);
+const DiaryFood = mongoose.model("DiaryFood", FoodDataSchema);
 
-module.exports = {DiaryFood};
+
+
+module.exports = { DiaryFood };
+

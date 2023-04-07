@@ -14,11 +14,7 @@ import { ReactNode } from "react";
 
 const Logo = (props) => {
   return (
-    <Image
-      width={"150px"}
-      alt={"feature image"}
-      src={"fit-fuel-log-black.png"}
-    />
+    <Image width={"150px"} alt={"feature image"} src={"new-logo-footer.png"} />
   );
 };
 
@@ -45,7 +41,7 @@ export default function Footer() {
               <Link href={"#"}>Features</Link>
               <Tag
                 size={"sm"}
-                bg={useColorModeValue("green.300", "green.800")}
+                bg={useColorModeValue("red.400", "green.800")}
                 ml={2}
                 color={"white"}
               >
@@ -103,7 +99,7 @@ export default function Footer() {
           <Logo />
         </Flex>
         <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-          © 2022 Chakra Templates. All rights reserved
+          © 2023 FIT FUEL. All rights reserved
         </Text>
       </Box>
     </Box>

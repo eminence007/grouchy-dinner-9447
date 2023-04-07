@@ -1,0 +1,3 @@
+    export const DIARY_DATA_LOADING="DIARY_DATA_LOADING";
+    export const  DIARY_DATA_SUCCESS="DIARY_DATA_SUCCESS";
+    export const  DIARY_DATA_ERR="DIARY_DATA_ERR";
